@@ -29,7 +29,7 @@ userSchema.set('toJSON', {
 
 
 // Shcema to hash the user's password
-userSchema.pre('save', function (mext) {
+userSchema.pre('save', function (next) {
   const user = this;
   if (!user.isModified('password')) return next();
   // password has been changed - salt and hash it
@@ -37,6 +37,7 @@ userSchema.pre('save', function (mext) {
     if (err) return next(err);
     // replace the user provided password with the hash
     user.password = hash;
+    //runs the next action in the pipeline
     next();
   });
 });
