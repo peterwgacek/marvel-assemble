@@ -42,6 +42,7 @@ userSchema.pre('save', function (next) {
   });
 });
 
+// Adding a custom method to our userSchema running bcrpt, comparing password you want to compare with plain text password in database
 userSchema.methods.comparePassword = function (tryPassword, cb) {
   bcrypt.compare(tryPassword, this.password, cb);
 };
