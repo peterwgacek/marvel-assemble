@@ -3,7 +3,7 @@ const logger = require('morgan');
 const cors = require('cors');
 
 const app = express();
-
+const port = process.env.PORT || '3000';
 
 require('dotenv').config();
 
@@ -22,7 +22,7 @@ app.use('/api/scores', scoresRouter);
 app.use('/api/users', usersRouter);
 
 const port = process.env.PORT || 3001;
-	
-app.listen(port, function() {
+
+app.listen(port, function () {
   console.log(`Express app running on port ${port}`)
 });
