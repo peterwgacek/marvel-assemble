@@ -4,7 +4,9 @@ const cors = require('cors');
 
 const app = express();
 
+
 require('dotenv').config();
+
 
 const usersRouter = require('./routes/api/users');
 
@@ -14,6 +16,7 @@ require('./config/database');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(cors());
+
 
 app.use('/api/users', usersRouter);
 
